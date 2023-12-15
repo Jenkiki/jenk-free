@@ -52,7 +52,7 @@ def clear():
     os.system('clear')
     print(logo)
     print(42*'═')
-    print(' \033[1;33mFB L: Machina Shiki')
+    print(' \033[1;33mFB       : Machina Shiki')
     print(' REPLIT  : Hayih59124')
     print(' STATUS  : Private')
     print(' VERSION : 1.0')
