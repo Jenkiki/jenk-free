@@ -54,7 +54,7 @@ def clear():
     print(42*'═')
     print(' \033[1;33mFB LINK : https://www.facebook.com/profile.php?id=100088334332155 ')
     print(' REPLIT  : Hayih59124')
-    print(' STATUS  : Private)
+    print(' STATUS  : Private')
     print(' VERSION : 2.3')
     print(' IP      : '+xy)
     print(42*'\033[1;32m═\033[0m')
