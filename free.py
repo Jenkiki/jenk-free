@@ -52,7 +52,7 @@ def clear():
     os.system('clear')
     print(logo)
     print(42*'═')
-    print(' \033[1;33mFB LINK : https://www.facebook.com/profile.php?id=100088334332155 ')
+    print(' \033[1;33mFB : Shiki Machina ')
     print(' REPLIT  : Hayih59124')
     print(' STATUS  : Private')
     print(' VERSION : 2.3')
