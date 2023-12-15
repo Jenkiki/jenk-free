@@ -39,14 +39,14 @@ def bypass():
   else:
     main()
 #----------logo----------#
-logo=('''\033[1;33m 
-█▀ █░█ █ █▄▀ █
-▄█ █▀█ █ █░█ █
+logo=('''\033[1;36m 
+█▀ █░█ █ █▄▀ █   █▀▄▀█ ▄▀█ █▀▀ █░█ █ █▄░█ ▄▀█
+▄█ █▀█ █ █░█ █   █░▀░█ █▀█ █▄▄ █▀█ █ █░▀█ █▀█
       ''')
 #----------clear----------#
 xy = requests.get('https://api.ipify.org/').text
 os.system('clear')
-print('\r\r\r\33[1;33m              YOUR IP:\33[1;36m'+str(xy))
+print('\r\r\r\33[1;36m              YOUR IP:\33[1;36m'+str(xy))
 time.sleep(5)
 def clear():
     os.system('clear')
@@ -57,10 +57,10 @@ def clear():
     print(' STATUS  : Private')
     print(' VERSION : 2.3')
     print(' IP      : '+xy)
-    print(42*'\033[1;32m═\033[0m')
+    print(42*'\033[1;36m═\033[0m')
 #----------line----------#
 def line():
-    print(42*'\033[1;32m═')
+    print(42*'\033[1;36m═')
 #----------menu----------#
 def main():
     clear()
